@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/details_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:alpha="0.0"
+            app:layout_constraintBottom_toTopOf="@+id/details_ok_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/status_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:alpha="0.0"
+            app:layout_constraintBottom_toTopOf="@+id/details_tv"
+            app:layout_constraintStart_toStartOf="@+id/details_tv" />
+
+        <Constraint
+            android:id="@+id/download_status_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:alpha="0.0"
+            app:layout_constraintBottom_toTopOf="@+id/details_tv"
+            app:layout_constraintEnd_toEndOf="@+id/details_tv"
+            app:layout_constraintStart_toEndOf="@+id/status_tv" />
+        <Constraint
+            android:id="@+id/name_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:alpha="0.0"
+            app:layout_constraintBottom_toTopOf="@+id/status_tv"
+            app:layout_constraintEnd_toEndOf="@+id/status_tv"
+            app:layout_constraintStart_toStartOf="@+id/status_tv" />
+        <Constraint
+            android:id="@+id/download_file_name_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:alpha="0.0"
+            app:layout_constraintBottom_toTopOf="@+id/download_status_tv"
+            app:layout_constraintEnd_toEndOf="@+id/download_status_tv"
+            app:layout_constraintStart_toEndOf="@+id/name_tv" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/details_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:alpha="1.0"
+            app:layout_constraintBottom_toTopOf="@+id/details_ok_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/status_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:alpha="1.0"
+            app:layout_constraintBottom_toTopOf="@+id/details_tv"
+            app:layout_constraintStart_toStartOf="@+id/details_tv" />
+
+        <Constraint
+            android:id="@+id/download_status_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:alpha="1.0"
+            app:layout_constraintBottom_toTopOf="@+id/details_tv"
+            app:layout_constraintEnd_toEndOf="@+id/details_tv"
+            app:layout_constraintStart_toEndOf="@+id/status_tv" />
+        <Constraint
+            android:id="@+id/name_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:alpha="1.0"
+            app:layout_constraintBottom_toTopOf="@+id/status_tv"
+            app:layout_constraintEnd_toEndOf="@+id/status_tv"
+            app:layout_constraintStart_toStartOf="@+id/status_tv" />
+        <Constraint
+            android:id="@+id/download_file_name_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:alpha="1.0"
+            app:layout_constraintBottom_toTopOf="@+id/download_status_tv"
+            app:layout_constraintEnd_toEndOf="@+id/download_status_tv"
+            app:layout_constraintStart_toEndOf="@+id/name_tv" />
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="1000">
+        <OnClick
+            app:clickAction="toggle"
+            app:targetId="@id/details_btn" />
+
+        <KeyFrameSet>
+            <KeyPosition
+                app:motionTarget="@+id/details_tv"
+                app:percentX="0.5"
+                app:keyPositionType="parentRelative"/>
+        </KeyFrameSet>
+    </Transition>
+</MotionScene>
