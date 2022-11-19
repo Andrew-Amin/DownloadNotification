@@ -133,32 +133,32 @@ class MainActivity : AppCompatActivity() {
             downloadID =
                 downloadManager.enqueue(request) // enqueue puts the download request in the queue.
           // get download percentage
-            thread {
-                var downloading = true
-                while (downloading) {
-                    val query = DownloadManager.Query()
-                    query.setFilterById(downloadID)
-
-                    val cursor = downloadManager.query(query)
-                    if (cursor.moveToFirst()) {
-                        val bytesDownloaded =
-                            cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR))
-                        val bytesTotal =
-                            cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES))
-
-                        if (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_SUCCESSFUL) {
-                            downloading = false
-                        }
-
-                        val progress = ((bytesDownloaded * 100) / bytesTotal).toFloat()
-                        runOnUiThread {
-//                            custom_button.setProgress(abs(progress)%100)
-                            println("progress: $progress")
-                        }
-                        cursor.close()
-                    }
-                }
-            }
+//            thread {
+//                var downloading = true
+//                while (downloading) {
+//                    val query = DownloadManager.Query()
+//                    query.setFilterById(downloadID)
+//
+//                    val cursor = downloadManager.query(query)
+//                    if (cursor.moveToFirst()) {
+//                        val bytesDownloaded =
+//                            cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR))
+//                        val bytesTotal =
+//                            cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES))
+//
+//                        if (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_SUCCESSFUL) {
+//                            downloading = false
+//                        }
+//
+//                        val progress = ((bytesDownloaded * 100) / bytesTotal).toFloat()
+//                        runOnUiThread {
+////                            custom_button.setProgress(abs(progress)%100)
+//                            println("progress: $progress")
+//                        }
+//                        cursor.close()
+//                    }
+//                }
+//            }
         } else {
             Toast.makeText(
                 this,
